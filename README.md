@@ -171,6 +171,7 @@ mvn test "-Dcucumber.features=src/test/resources/features/api/ReqresApi.feature"
 ```bash
 appium
 ```
+Also, make sure the emulator is running before executing tests.<br>
 To run the **Calculator.feature** file, use the following command:
 ```bash
 mvn test "-Dcucumber.features=src/test/resources/features/mobile/Calculator.feature"
