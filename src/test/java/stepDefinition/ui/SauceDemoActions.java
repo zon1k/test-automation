@@ -12,7 +12,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -34,7 +37,13 @@ public class SauceDemoActions {
             Assert.fail("An error occurred while reading the .env file: " + e.getMessage() + ". Please ensure that SAUCE_USERNAME and SAUCE_PASSWORD are set properly in the .env file.");
         }
 
+        final Map<String, Object> chromePrefs = new HashMap<>();
+        chromePrefs.put("credentials_enable_service", false);
+        chromePrefs.put("profile.password_manager_enabled", false);
+        chromePrefs.put("profile.password_manager_leak_detection", false);
+
         ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", chromePrefs);
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
 
