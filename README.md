@@ -151,7 +151,7 @@ cd test-automation
 ```
 ### **3. Install dependencies using Maven:**
 ```bash
-mvn clean install
+mvn clean install -DskipTests
 ```
 ### **4. Run a Specific Feature File from Command Line**<br>
 **Example for UI Testing:**<br>
@@ -181,6 +181,15 @@ mvn test "-Dcucumber.features=src/test/resources/features/mobile/Calculator.feat
 * For mobile testing, you will need Android Studio or Xcode (for iOS) and the necessary drivers installed on your system.
 * Ensure the necessary environment variables are set:
 * * `SAUCE_USERNAME` and `SAUCE_PASSWORD` for Sauce Labs, which should be stored in your .env file.
+
+## Important Note:
+The .env file should not be pushed to the repository and should be added to .gitignore for security. This file should only be created locally by each user in the project root. It should contain:
+```bash
+SAUCE_USERNAME=<your_sauce_username>
+SAUCE_PASSWORD=<your_sauce_password>
+```
+I just added it for demo purposes!  This ensures each user has their own credentials, and sensitive data remains private.
+
 ## Troubleshooting:
 If you are using an emulator from Android Studio, please use a Google Pixel device. Nexus emulators do not include a built-in Calculator app.<br>
 If you are using **Appium v2**, you need to manually install the Android driver:<br>
