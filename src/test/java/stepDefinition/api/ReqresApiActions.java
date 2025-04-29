@@ -73,7 +73,8 @@ public class ReqresApiActions {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
-                    .uri(URI.create(reqresApiUrl + endpointUrl));
+                    .uri(URI.create(reqresApiUrl + endpointUrl))
+                    .header("x-api-key", "reqres-free-v1");
 
             switch (httpMethod) {
                 case GET:
